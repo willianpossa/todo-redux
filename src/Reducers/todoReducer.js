@@ -2,7 +2,7 @@ import {
     FETCH_TODOS,
     FETCH_TODOS_SUCCESS,
     FETCH_TODOS_ERROR,
-    ADD_TODO,
+    CREATE_TODO,
     REMOVE_TODO,
     UPDATE_TODO
 } from '../Actions/Types'
@@ -35,7 +35,7 @@ export default function todoReducers(state = defaultState, action) {
                 loading: false
             }
 
-        case ADD_TODO:
+        case CREATE_TODO:
             todos = todos.concat([action.todo])
 
             return {
@@ -44,7 +44,7 @@ export default function todoReducers(state = defaultState, action) {
             }
 
         case REMOVE_TODO:
-            todos = todos.filter(todo => todo.id !== action.todo.id)
+            todos = todos.filter(todo => todo.id !== action.todo_id)
 
             return {
                 ...state,

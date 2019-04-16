@@ -1,44 +1,31 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route
+} from 'react-router-dom'
 
-import { fetchData, updateTodo } from './Actions/Todos'
+import RoutePaths from './Routes'
 
 class App extends Component {
 
-	updateStatusTodo = (todo_id) => {
-		this.props.dispatch(updateTodo(todo_id))
-	}
-
-	componentDidMount() {
-		this.props.dispatch(fetchData())
-	}
+	componentDidMount() {}
 	
   	render() {
-		const { todos, loading } = this.props
-
     	return (
-			<div className="App">
-				{ loading 
-					? <p>Carregando...</p>
-					: <ul className="todos-list">
-						{ todos.map(todo => (
-							<li key={ todo.id } className="todo-item">
-								<input type="checkbox" className="checkbox-input" checked={ todo.completed } onChange={ () => { this.updateStatusTodo(todo.id) } } />
-								{ todo.title }
-							</li>
-						))}
-					</ul>
-				}
-			</div>
+			<Router>
+				<div className="container">
+					<Route render={ ({location}) => (
+						<Switch location={ location }>
+							{ RoutePaths.map(route => (
+								<Route key={ location } exact={ route.exact } path={ route.path } component={ route.component } />
+							))}
+						</Switch>
+					)} />
+				</div>
+			</Router>
     	);
   	}
 }
 
-const mapStateToProps = ({ Todos: { todos, loading} }) => {
-	return {
-		todos,
-		loading
-	}
-}
-
-export default connect(mapStateToProps)(App)
+export default App

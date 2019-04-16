@@ -2,7 +2,7 @@ import {
     FETCH_TODOS,
     FETCH_TODOS_SUCCESS,
     FETCH_TODOS_ERROR,
-    ADD_TODO,
+    CREATE_TODO,
     REMOVE_TODO,
     UPDATE_TODO
 } from './Types'
@@ -44,5 +44,19 @@ export const handleUpdateStatusTodo = todo_id => {
     return {
         type: UPDATE_TODO,
         todo_id
+    }
+}
+
+export const handleRemoveTodo = todo_id => {
+    return {
+        type: REMOVE_TODO,
+        todo_id
+    }
+}
+
+export const handleCreateTodo = todo => {
+    return {
+        type: CREATE_TODO,
+        todo
     }
 }

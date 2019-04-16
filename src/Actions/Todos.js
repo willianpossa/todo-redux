@@ -4,11 +4,18 @@ import {
     handleFetchTodos,
     handleSuccessFetchTodos,
     handleErrorFetchTodos,
-    handleUpdateStatusTodo
+    handleUpdateStatusTodo,
+    handleRemoveTodo,
+    handleCreateTodo
 } from './Creators'
 
 export const fetchData = _ => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const { todos } = getState().Todos
+
+        if(todos.length > 0)
+            return
+
         dispatch(handleFetchTodos())
 
         return API.get('/todos').then(({status, data}) => {
@@ -26,5 +33,17 @@ export const fetchData = _ => {
 export const updateTodo = todo_id => {
     return dispatch => {
         dispatch(handleUpdateStatusTodo(todo_id))
+    }
+}
+
+export const removeTodo = todo_id => {
+    return dispatch => {
+        dispatch(handleRemoveTodo(todo_id))
+    }
+}
+
+export const createTodo = todo => {
+    return dispatch => {
+        dispatch(handleCreateTodo(todo))
     }
 }
