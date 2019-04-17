@@ -5,6 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import { persistor, store } from './Store'
 
+import './Assets/GeneralStyles.css'
+
 import App from './App';
 
 ReactDOM.render(

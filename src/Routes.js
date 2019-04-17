@@ -1,5 +1,5 @@
-import Home from './Containers/Home'
-import Create from './Containers/Create'
+import Home from './Containers/Home/Template'
+import Create from './Containers/Create/Template'
 
 export default [
     {

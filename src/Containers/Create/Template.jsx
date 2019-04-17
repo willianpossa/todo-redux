@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import RandomID from '../Helpers/RandomID'
+import RandomID from '../../Helpers/RandomID'
 
-import { createTodo } from '../Actions/Todos'
+import { createTodo } from '../../Actions/Todos'
 
 class Create extends Component {
 
