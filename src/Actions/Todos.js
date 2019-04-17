@@ -18,7 +18,7 @@ export const fetchData = _ => {
 
         dispatch(handleFetchTodos())
 
-        return API.get('/todos').then(({status, data}) => {
+        return API.get('/todos?_limit=8').then(({status, data}) => {
             if(status === 200) {
                 dispatch(handleSuccessFetchTodos(data))
             }

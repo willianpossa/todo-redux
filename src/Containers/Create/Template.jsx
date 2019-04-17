@@ -6,6 +6,19 @@ import RandomID from '../../Helpers/RandomID'
 
 import { createTodo } from '../../Actions/Todos'
 
+import { 
+	AppHolder, 
+	TitleApp, 
+	LinkHolder, 
+	FormHolder,
+	FieldGroup,
+	FieldLabel,
+	CheckboxHolder,
+	CheckboxMarker,
+    FieldInput,
+    Button
+} from './Style'
+
 class Create extends Component {
 
 	state = {
@@ -54,14 +67,40 @@ class Create extends Component {
 		const { title, completed } = this.state.form
 
     	return (
-			<div className="App">
-				<Link to="/">Voltar</Link>
-                <div className="form-holder">
-					<input type="text" value={ title } name="title" onChange={ this.handleChange } />
-					<input type="checkbox" checked={ completed } name="completed" onChange={ this.handleChange } />
-					<button onClick={ this.createItem }>Criar item</button>
-				</div>
-			</div>
+			<AppHolder>
+				<LinkHolder>
+                    <Link to="/">Voltar</Link>
+					<TitleApp>Criar Tarefa</TitleApp>
+                </LinkHolder>
+				<FormHolder>
+					<FieldGroup>
+						<FieldLabel htmlFor="title">Título</FieldLabel>
+						<FieldInput 
+							type="text" 
+							id="title"
+							value={ title } 
+							name="title" 
+							onChange={ this.handleChange } 
+						/>
+					</FieldGroup>
+					<FieldGroup className="inline-field">
+						<CheckboxHolder>
+							<FieldInput 
+								type="checkbox" 
+								id="completed"
+								checked={ completed } 
+								name="completed" 
+								onChange={ this.handleChange }
+							/>
+							<CheckboxMarker></CheckboxMarker>
+						</CheckboxHolder>
+						<FieldLabel htmlFor="completed">
+							Tarefa Concluída
+						</FieldLabel>
+					</FieldGroup>
+					<Button visible={ title !== '' } onClick={ this.createItem }>Criar Tarefa</Button>
+				</FormHolder>
+            </AppHolder>
     	);
   	}
 }
