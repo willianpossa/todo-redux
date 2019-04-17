@@ -7,8 +7,6 @@ import {
     UPDATE_TODO
 } from './Types'
 
-// Todos Creators
-
 /**
  * Initialize Fetch Data
  * @param {empty} _ 
@@ -40,6 +38,10 @@ export const handleErrorFetchTodos = _ => {
     }
 }
 
+/**
+ * 
+ * @param {integer} todo_id - ID of todo to update
+ */
 export const handleUpdateStatusTodo = todo_id => {
     return {
         type: UPDATE_TODO,
@@ -47,6 +49,10 @@ export const handleUpdateStatusTodo = todo_id => {
     }
 }
 
+/**
+ * 
+ * @param {integer} todo_id - ID of todo to remove
+ */
 export const handleRemoveTodo = todo_id => {
     return {
         type: REMOVE_TODO,
@@ -54,6 +60,10 @@ export const handleRemoveTodo = todo_id => {
     }
 }
 
+/**
+ * 
+ * @param {object} todo - Object todo to create a new todo and insert in list
+ */
 export const handleCreateTodo = todo => {
     return {
         type: CREATE_TODO,
