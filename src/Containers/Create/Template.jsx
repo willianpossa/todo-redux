@@ -69,7 +69,7 @@ class Create extends Component {
     	return (
 			<AppHolder>
 				<LinkHolder>
-                    <Link to="/">Voltar</Link>
+                    <Link to="/">{ '< Voltar' }</Link>
 					<TitleApp>Criar Tarefa</TitleApp>
                 </LinkHolder>
 				<FormHolder>
