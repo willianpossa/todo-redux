@@ -39,6 +39,15 @@ const TodoList = styled.ul`
     ` }
 `
 
+const EmptyList = styled.p`
+    color: #696969;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+    font-weight: 300;
+`
+
 const LinkHolder = styled.div`
     max-width: 800px;
     margin: 0 auto;
@@ -77,4 +86,4 @@ const LinkHolder = styled.div`
     ` }
 `
 
-export { AppHolder, TodoListHolder, TitleApp, TodoList, LinkHolder }
+export { AppHolder, TodoListHolder, EmptyList, TitleApp, TodoList, LinkHolder }

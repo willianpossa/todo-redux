@@ -15,9 +15,7 @@ const TodoHolder = styled.li`
 
 const CheckboxHolder = styled.div`
     display: inline-block;
-    border: 1px solid #DDD;
-    border-bottom: none;
-    border-left: none;
+    border-right: 1px solid #DDD;
     height: 50px;
     max-width: 50px;
     flex: 0 0 50px;

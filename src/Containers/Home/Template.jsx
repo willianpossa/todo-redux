@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { fetchData, updateTodo, removeTodo } from '../../Actions/Todos'
 import TodoItem from '../../Components/TodoItem/Template';
 
-import { AppHolder, TitleApp, TodoList, TodoListHolder, LinkHolder } from './Style'
+import { AppHolder, TitleApp, TodoList, EmptyList, TodoListHolder, LinkHolder } from './Style'
 
 class Home extends Component {
 	componentDidMount() {
@@ -22,14 +22,17 @@ class Home extends Component {
 					: <TodoListHolder>
                         <TitleApp>Todo List</TitleApp>
                         <TodoList>
-                            { todos.map(todo => (
-                                <TodoItem 
-                                    key={ todo.id } 
-                                    todo={ todo } 
-                                    updateTodo={ () => { dispatch(updateTodo(todo.id)) } }
-                                    removeTodo={ () => { dispatch(removeTodo(todo.id)) } }
-                                />
-                            ))}
+                            { todos.length > 0 
+                                ? todos.map(todo => (
+                                    <TodoItem 
+                                        key={ todo.id } 
+                                        todo={ todo } 
+                                        updateTodo={ () => { dispatch(updateTodo(todo.id)) } }
+                                        removeTodo={ () => { dispatch(removeTodo(todo.id)) } }
+                                    />
+                                ))
+                                : <EmptyList>Empty List</EmptyList>
+                            }
                         </TodoList>
                     </TodoListHolder>
                 }
